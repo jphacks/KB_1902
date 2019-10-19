@@ -8,11 +8,8 @@ class PostsController < ApplicationController
   end
 
   def create
-
-binding.pry
-
     @post = Post.new(post_params)
-    @post.genre_id = param[:post][:genre_id]
+    @post.genre_id = params[:post][:genre_id]
     @post.choice = params[:post][:choice]
     if @post.save!
       redirect_to post_path(@post.id)
