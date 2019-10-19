@@ -1,5 +1,7 @@
 # README
 
+現在地から近いおすすめのごはん、美容室を提案してくれるよ
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
