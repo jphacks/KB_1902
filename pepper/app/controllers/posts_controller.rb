@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
+    @posts = Post.all
   end
 
   def show
@@ -8,8 +9,10 @@ class PostsController < ApplicationController
 
   def create
 
+binding.pry
+
     @post = Post.new(post_params)
-    @post.genre_id = 1
+    @post.genre_id = param[:post][:genre_id]
     @post.choice = params[:post][:choice]
     if @post.save!
       redirect_to post_path(@post.id)
