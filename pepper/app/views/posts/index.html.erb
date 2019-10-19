@@ -5,3 +5,10 @@
     <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
     <%= f.submit %>
 <% end %>
+
+<% @posts.each do |g| %>
+    <%= g.title %>
+    <%= g.body %>
+    <%= g.choice %>
+    <%= g.genre.genre_name %><br>
+<% end %>
