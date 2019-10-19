@@ -9,4 +9,6 @@ class User < ApplicationRecord
   def email_changed?
     false
   end
+
+  has_many :comments, dependent: :destroy
 end
