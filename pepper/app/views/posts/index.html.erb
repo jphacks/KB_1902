@@ -1,14 +1,36 @@
-<%= form_for @post do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_field :body %>
-    <%= f.select :choice, {天使:0 ,悪魔: 1} %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
-    <%= f.submit %>
-<% end %>
+<div id="alert alert-danger">
+				<% if @post.errors.any? %>
+        			<h2><%= @post.errors.count %>error prohibited this obj from being saved:</h2>
+        			<ul>
+        			<% @post.errors.full_messages.each do |message| %>
+            			<li><%= message %></li>
+        			<% end %>
+        		    </ul>
+    			<% end %>
+    </div>
 
-<% @posts.each do |g| %>
-    <%= g.title %>
-    <%= g.body %>
-    <%= g.choice %>
-    <%= g.genre.genre_name %><br>
-<% end %>
+	<div class="row">
+
+		<%= render 'posts/form'%>
+
+		<div class="col-xs-9">
+
+			<h2>Posts</h2>
+
+			<table class="table table-hover table-inverse">
+			<thead>
+			<tr>
+			  <th>タイトル</th>
+			  <th>本文</th>
+			  <th>天使or悪魔</th>
+			  <th>ジャンル</th>
+			</tr>
+		  </thead>
+
+			<tbody id="posts">
+			    <%= render @posts %>
+		    </tbody>
+			</table>
+
+		</div>
+	</div>
