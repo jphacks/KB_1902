@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_10_19_073433) do
+=======
 ActiveRecord::Schema.define(version: 2019_10_19_090326) do
+>>>>>>> 6afaa11e71654d0f7a8f431a8f5a2b7b077c422f
 
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
