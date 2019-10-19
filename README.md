@@ -3,7 +3,7 @@
 [![Product Name](image.png)](https://www.youtube.com/watch?v=G5rULR53uMk)
 
 ## 製品概要
-### 幸福度　✖️ Tech
+### 幸福度 Tech
 
 ### 背景（製品開発のきっかけ、課題等）
 仕事や職場生活、学校生活でストレスを感じ、SNSに不満を呟く人は多い。
