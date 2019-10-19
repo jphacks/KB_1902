@@ -1,13 +1,65 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-<%= @post.title %>
+<div class="row">
+	<div class="col-xs-12">
 
-<%= form_for [@post, @comment] do |f| %>
-<%= f.text_field :comment %>
-<%= f.submit "投稿する" %>
-<% end %>
+	  	<h2>Post detail</h2>
 
-コメント：
-<% @comments.each do |c| %>
-    <%= c.comment %>
-<% end %>
+		<table class="table table-hover table-inverse">
+			<thead>
+				<tr>
+				  <th>タイトル</th>
+				  <th>本文</th>
+				  <th>天使or悪魔</th>
+				  <th>ジャンル</th>
+				</tr>
+			 </thead>
+
+			<tbody id="posts">
+				   <tr>
+					  <td>
+					    <%= @post.title %>
+					  </td>
+					  <td>
+					    <%= @post.body %>
+					  </td>
+					  <td>
+					  	<% if @post.choice == true %>
+					  		悪魔
+					  	<% else %>
+					  		天使
+					  	<% end %>
+					  </td>
+					  <td>
+						<%= @post.genre.genre_name %>
+					  </td>
+					</tr>
+		</table>
+		<table class="table table-hover table-inverse">
+			<thead>
+				<tr>
+				  <th>コメント：</th>
+				</tr>
+			 </thead>
+			<tbody>
+			<% @comments.each do |c| %>
+			<tr>
+			 <td><%= c.comment %></td>
+			</tr>
+			<% end %>
+			</tbody>
+		</table>
+
+		<h2> Post Comment</h2>
+
+		<%= form_for [@post, @comment] do |f| %>
+
+			<h4>コメント：</h4>
+			<%= f.text_area :comment %><br>
+			<%= f.submit "コメントする" %>
+
+		<% end %>
+
+	</div>
+</div>
+
+
+
