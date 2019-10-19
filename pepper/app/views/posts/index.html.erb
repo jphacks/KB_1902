@@ -1,7 +1,7 @@
 <%= form_for @post do |f| %>
     <%= f.text_field :title %>
     <%= f.text_field :body %>
-    <%= f.select :choice, {天使:1 ,悪魔: 2} %>
+    <%= f.select :choice, {天使:0 ,悪魔: 1} %>
     <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
     <%= f.submit %>
 <% end %>
