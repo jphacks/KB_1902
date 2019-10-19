@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
 
-binding.pry
+
 
     @post = Post.new(post_params)
     @post.genre_id = param[:post][:genre_id]
