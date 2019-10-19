@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= post.title %>
+  </td>
+  <td>
+    <%= post.body %>
+  </td>
+  <td>
+  	<% if post.choice == true %>
+  		悪魔
+  	<% else %>
+  		天使
+  	<% end %>
+  </td>
+  <td>
+	<%= post.genre.genre_name %>
+  </td>
+  <td>
+	<%= link_to "show" ,post_path(post) %>
+  </td>
+</tr>
