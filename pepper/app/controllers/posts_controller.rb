@@ -11,7 +11,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.genre_id = params[:post][:genre_id]
     @post.choice = params[:post][:choice]
-    if @post.save!
+    
+    binding.pry
+    
+    if @post.save
       redirect_to post_path(@post.id)
     else
       render "index"
