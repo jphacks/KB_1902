@@ -1,6 +1,13 @@
 
+<%= @post.title %>
 
 <%= form_for [@post, @comment] do |f| %>
 <%= f.text_field :comment %>
 <%= f.submit "投稿する" %>
 <% end %>
+
+コメント：
+<% @comments.each do |c| %>
+    <%= c.comment %>
+<% end %>
+

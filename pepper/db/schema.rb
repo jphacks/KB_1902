@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_19_073433) do
+=======
+ActiveRecord::Schema.define(version: 2019_10_19_090326) do
+>>>>>>> 6afaa11e71654d0f7a8f431a8f5a2b7b077c422f
 
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "genres", force: :cascade do |t|
