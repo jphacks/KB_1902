@@ -58,9 +58,17 @@
         <%= flash[:notice] %>
       <% end %>
     </div>
-    <% if user_signed_in? %>
-    <h2>天使　<%= @aper %>％　｜　悪魔　<%= @dper %> ％</h2>
-    <% end %>
+    <div>
+      <% if user_signed_in? %>
+      <h2>天使　<%= @aper %>％　｜　悪魔　<%= @dper %> ％</h2>
+      <% end %>
+      <div><canvas id="myChart" width="200" height="50"></canvas></div>
+      <script>
+        var a = <%= @aper %>;
+        var d = <%= @dper %>;
+      </script>
+      <script>draw_graph();</script>
+    </div> 
     <%= yield %>
   </div>
 </body>
