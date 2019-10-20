@@ -75,6 +75,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "スッキリ！"
+      redirect_to posts_path
+    end
   end
 
   def update
