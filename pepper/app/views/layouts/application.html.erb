@@ -61,11 +61,12 @@
         <%= flash[:notice] %>
       <% end %>
     </div>
-<<<<<<< HEAD
     <div>
-      <% if user_signed_in? %>
-      <h2>天使　<%= @aper %>％　｜　悪魔　<%= @dper %> ％</h2>
-      <% end %>
+    <% if user_signed_in? %>
+    <h2 style="text-align: center;">
+      <%= image_tag 'angel.jpg' ,:size => '50x50'%><%= @aper %>％　｜
+      <%= image_tag 'devil.jpg' ,:size => '60x60'%><%= @dper %> ％</h2>
+    <% end %>
       <div><canvas id="myChart" width="200" height="50"></canvas></div>
       <script>
         var a = <%= @aper %>;
@@ -73,13 +74,6 @@
       </script>
       <script>draw_graph();</script>
     </div> 
-=======
-    <% if user_signed_in? %>
-    <h2 style="text-align: center;">
-      <%= image_tag 'angel.jpg' ,:size => '50x50'%><%= @aper %>％　｜
-      <%= image_tag 'devil.jpg' ,:size => '60x60'%><%= @dper %> ％</h2>
-    <% end %>
->>>>>>> cc83ae56c2bfe10d1c5367b7f3064697e927e889
     <%= yield %>
   </div>
 </body>
