@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   end
 
   def callback
-    puts params[:events][0][:message][:text]
     post = Post.new
     post.name = params[:events][0][:message][:text]
     post.save
