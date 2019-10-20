@@ -15,7 +15,12 @@
 
 		<div class="col-xs-9">
 
-			<h2>Posts</h2>
+			<h2>投稿一覧</h2>
+			<%= form_tag(posts_search_path, method: "get") do %>
+   				<%= select_tag(:choice, options_for_select([["天使",false],["悪魔",true]])) %>
+   			<%= submit_tag "絞り込み" %>
+ 			<% end %>
+
 
 			<table class="table table-hover table-inverse">
 			<thead>
@@ -28,7 +33,44 @@
 		  </thead>
 
 			<tbody id="posts">
-			    <%= render @posts %>
+			    <% @posts.each do |post| %>
+ 				   <tr>
+ 					  <td>
+ 					    <%= post.title %>
+ 					  </td>
+ 					  <td>
+ 					    <%= post.body %>
+ 					  </td>
+ 					  <td>
+ 					  	<% if post.choice == true %>
+ 					  		悪魔
+ 					  	<% else %>
+ 					  		天使
+ 					  	<% end %>
+ 					  </td>
+ 					  <td>
+ 						<%= post.genre.genre_name %>
+ 					  </td>
+ 					  <td>
+ 						<%= link_to "show" ,post_path(post) %>
+ 					  </td>
+					   <% if post.favorited_by?(current_user) %>
+					<td>
+						<%= link_to post_favos_path(post), method: :delete do %>
+						<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></i>
+						<%= post.favos.count %>
+						<% end %>
+					</td>
+					<% else %>
+					<td>
+						<%= link_to post_favos_path(post), method: :post do %>
+						<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+						<%= post.favos.count %> 
+						<% end %>
+					</td>
+					<% end %>
+ 					</tr>
+ 				<% end %>
 		    </tbody>
 			</table>
 

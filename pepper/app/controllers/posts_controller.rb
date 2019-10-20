@@ -45,6 +45,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def search
+     if params[:choice] == "true"
+       @posts = Post.where(:choice => true)
+     elsif params[:choice] == "false"
+       @posts = Post.where(:choice => false)
+     end
+       @post = Post.new
+       render :index
+   end
+
   def show
     @post = Post.find(params[:id])
     @post_new = Post.new
@@ -65,6 +75,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "スッキリ！"
+      redirect_to posts_path
+    end
   end
 
   def update

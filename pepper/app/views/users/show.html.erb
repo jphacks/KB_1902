@@ -2,7 +2,7 @@
 	<%= render 'posts/form' %>
 	<div class="col-xs-9">
 
-	  	<h2>Post detail</h2>
+	  	<h2>あなたの投稿</h2>
 
 		<table class="table table-hover table-inverse">
 				<thead>
@@ -36,9 +36,12 @@
 					  <td>
 						<%= link_to "show" ,post_path(post) %>
 					  </td>
+					  
 					</tr>
 				<% end %>
-
+<td>
+					  <%= link_to "タスクへ", favos_path %>
+					  </td>
 			    </tbody>
 			</table>
 	</div>
