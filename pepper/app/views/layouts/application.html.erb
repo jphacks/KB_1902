@@ -13,11 +13,14 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
           <nav class="nav navbar-nav navbar-left">
-            <span style="color: #FFFFFF; font-size: 20px;">天使と悪魔</span>
+            <span style="color: #FFFFFF; font-size: 20px;">
+              <%= image_tag 'angelanddevil.png' ,:size => '50x50'%>
+            天使と悪魔</span><br>
             <% if user_signed_in? %>
               <span style="font-size:20px; color: white; padding-top: 10px;"
               class='glyphicon glyphicon-user'>
                 <strong><%= current_user.name %></strong>さん
+                <%= link_to 'アカウント情報変更', edit_user_registration_path %>
               </span>
             <% end %>
           </nav>
@@ -52,14 +55,16 @@
       </div>
   </header>
 
-  <div class="container" style="margin-top: 50px;">
+  <div class="container" style="margin-top: 100px;">
     <div id="notice" style="color: green;">
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
     </div>
     <% if user_signed_in? %>
-    <h2>天使　<%= @aper %>％　｜　悪魔　<%= @dper %> ％</h2>
+    <h2 style="text-align: center;">
+      <%= image_tag 'angel.jpg' ,:size => '50x50'%><%= @aper %>％　｜
+      <%= image_tag 'devil.jpg' ,:size => '60x60'%><%= @dper %> ％</h2>
     <% end %>
     <%= yield %>
   </div>

@@ -1,7 +1,5 @@
 <div class="col-xs-3">
-<h2><%= current_user.name%>さん</h2>
-<%= link_to 'アカウント情報変更', edit_user_registration_path %>
-
+  <h2>投稿</h2>
 <div style="margin-bottom: 20px;"></div>
 <%= form_for @post do |f| %>
 	<%= f.label "タイトル" %><br>
