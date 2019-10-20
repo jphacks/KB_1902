@@ -1,4 +1,4 @@
-<h2>タスク</h2>
+<h2>キープ一覧</h2>
 <table class="table table-hover table-inverse">
 			<thead>
 			<tr>
@@ -32,9 +32,14 @@
  					  <td>
  						<%= post.post.genre.genre_name %>
  					  </td>
+ 					  <% if post.post.choice == true %>
  					  <td>
-                         <%= link_to "show" ,post_path(post.post) %>
+                         <%= link_to "助ける！" ,post_path(post.post) %>
+                      </td>
+                      <% end %>
  					</tr>
  				<% end %>
 		    </tbody>
 			</table>
+
+<%= link_to "投稿一覧へ戻る",posts_path %>

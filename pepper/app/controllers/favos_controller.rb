@@ -3,7 +3,7 @@ class FavosController < ApplicationController
         post = Post.find(params[:post_id])
         favo = current_user.favos.new(post_id: post.id)
         favo.save
-        redirect_to posts_path
+        redirect_to favos_path
     end
     def destroy
         post = Post.find(params[:post_id])

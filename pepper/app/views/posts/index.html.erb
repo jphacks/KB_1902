@@ -51,22 +51,19 @@
  					  <td>
  						<%= post.genre.genre_name %>
  					  </td>
+ 					  <% if post.choice == true %>
  					  <td>
- 						<%= link_to "show" ,post_path(post) %>
- 					  </td>
+                         <%= link_to "助ける！" ,post_path(post) %>
+                      </td>
+                      <% end %>
+
 					   <% if post.favorited_by?(current_user) %>
 					<td>
-						<%= link_to post_favos_path(post), method: :delete do %>
-						<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></i>
-						<%= post.favos.count %>
-						<% end %>
+						<%= link_to "キープから外す",post_favos_path(post), method: :delete %>
 					</td>
 					<% else %>
 					<td>
-						<%= link_to post_favos_path(post), method: :post do %>
-						<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-						<%= post.favos.count %> 
-						<% end %>
+						<%= link_to "キープ",post_favos_path(post), method: :post %>
 					</td>
 					<% end %>
  					</tr>
