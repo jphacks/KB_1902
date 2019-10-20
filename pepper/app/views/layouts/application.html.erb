@@ -61,11 +61,19 @@
         <%= flash[:notice] %>
       <% end %>
     </div>
+    <div>
     <% if user_signed_in? %>
     <h2 style="text-align: center;">
       <%= image_tag 'angel.jpg' ,:size => '50x50'%><%= @aper %>％　｜
       <%= image_tag 'devil.jpg' ,:size => '60x60'%><%= @dper %> ％</h2>
     <% end %>
+      <div><canvas id="myChart" width="200" height="50"></canvas></div>
+      <script>
+        var a = <%= @aper %>;
+        var d = <%= @dper %>;
+      </script>
+      <script>draw_graph();</script>
+    </div> 
     <%= yield %>
   </div>
 </body>

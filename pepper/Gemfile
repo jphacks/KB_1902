@@ -78,3 +78,6 @@ gem 'pry-byebug'
 
 #heroku用
 gem 'rails_12factor', group: :production
+
+#チャート
+gem 'chart-js-rails', '~> 0.1.4'
